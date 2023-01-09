@@ -1,0 +1,9 @@
+//interface
+package details;
+
+public interface Student {
+
+        public void name();
+        public void branch();
+
+}
