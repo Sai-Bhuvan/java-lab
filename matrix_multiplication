@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+class HelloWorld {
+    
+    int r;
+    int c;
+    HelloWorld(int x,int y){
+        this.r=x;
+        this.c=y;
+    }
+    
+    void multiply(HelloWorld h1,HelloWorld h2){
+        Scanner in =new Scanner(System.in);
+        if(h1.c==h2.r){
+            int[][] a=new int[h1.r][h1.c];
+            int[][] b=new int[h2.r][h2.c];
+            int[][] c=new int[h1.r][h2.c];
+            
+            System.out.println("enter the values of matrix one");
+            for(int i=0;i<h1.r;i++){
+                for(int j=0;j<h1.c;j++){
+                    a[i][j]=in.nextInt();
+                }
+            }
+            
+            System.out.println("enter the values of matrix two");
+            for(int i=0;i<h2.r;i++){
+                for(int j=0;j<h2.c;j++){
+                    b[i][j]=in.nextInt();
+                }
+            }
+            
+            for(int i=0;i<h1.r;i++){
+                for(int j=0;j<h2.c;j++){
+                    c[i][j]=0;
+                    for(int k=0;k<h1.c;k++){
+                        c[i][j]=a[i][k]*b[k][j];
+                        
+                    }
+                    
+                }
+            }
+            
+            System.out.println("the multiplied matrix is ");
+            for(int i=0;i<h1.r;i++){
+                for(int j=0;j<h2.c;j++){
+                    System.out.print(c[i][j]+" ");
+                }
+                System.out.println("");
+            }
+        }
+        else{
+            System.out.println("cant multiply");
+        }
+    }
+}
+class mat{
+    public static void main(String[] args) {
+        HelloWorld h1=new HelloWorld(2,2);
+        HelloWorld h2=new HelloWorld(2,2);
+        h1.multiply(h1,h2);
+    }
+}
